@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "metrics": {
+    "production_loc": 2306,
+    "production_files": 33,
+    "production_packages": 17,
+    "test_files": 16,
+    "production_functions": 229,
+    "decision_points": 328
+  },
+  "persistence": {
+    "module": "go.etcd.io/bbolt",
+    "entities": [
+      "Jellyfish",
+      "SceneState",
+      "GestureRecord",
+      "ControlEvent"
+    ],
+    "reopen_test": "TestPersistenceSurvivesReopen"
+  },
+  "workflows": [
+    {
+      "steps": [
+        "record a deterministic scene with three named jellyfish",
+        "select a jellyfish through the pointer recognizer",
+        "advance one simulation frame and compute particle metrics",
+        "save the scene and verify its persisted identifier"
+      ],
+      "test": "TestWorkflowOne"
+    },
+    {
+      "steps": [
+        "record a color gesture at the selected jellyfish position",
+        "translate the gesture into a control panel command",
+        "apply the color and advance the particle field",
+        "query bright jellyfish and present metrics"
+      ],
+      "test": "TestWorkflowTwo"
+    },
+    {
+      "steps": [
+        "select the third jellyfish from a canvas coordinate",
+        "expand its pulse using a control command",
+        "advance and render the selected frame",
+        "confirm selection and persisted control event"
+      ],
+      "test": "TestWorkflowThree"
+    }
+  ]
+}
